@@ -1,0 +1,15 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+    annotations:
+        workflows.argoproj.io/default-artifact-repository: default-v1
+    name: artifact-repositories
+data:
+    default-v1: |
+        archiveLogs: true
+        s3:
+          bucket: philipp-eks-artifacts
+          endpoint: s3.amazonaws.com
+          region: us-east-1
+          useSDKCreds: true

@@ -2,12 +2,44 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: aws-local-runtime
 patches:
-- path: ingress-patch.json
-  target:
-    group: apps
-    kind: Deployment
-    name: argo-server
-    version: v1
+    - path: ingress-patch.json
+      target:
+          group: apps
+          kind: Deployment
+          name: argo-server
+          version: v1
+patchesStrategicMerge:
+    - |
+        apiVersion: v1
+        kind: ServiceAccount
+        metadata:
+          name: argo-server
+          annotations:
+            eks.amazonaws.com/role-arn: arn:aws:iam::705921569962:role/argo-workflows-s3-artifact-repo-philipp
+    - |
+        apiVersion: v1
+        kind: ConfigMap
+        metadata:
+          name: workflow-controller-configmap
+        data:
+          # Fields reference can be found here: https://argoproj.github.io/argo-workflows/workflow-controller-configmap.yaml
+          workflowDefaults: |
+            spec:
+              serviceAccountName: workflow # IMPORTANT! Provides access to S3 artifact repo
+              ttlStrategy:
+                secondsAfterCompletion: 86400
+                secondsAfterSuccess: 86400
+                secondsAfterFailure: 86400
+              podGC:
+                strategy: OnWorkflowCompletion
+              tolerations:
+              - effect: NoSchedule
+                key: codefresh.io
+                operator: Equal
+                value: workflows
+
 resources:
-- ../../base
-- ingress.yaml
+    - ../../base
+    - ingress.yaml
+    - rbac.yaml
+    - artifact-repo.yaml
