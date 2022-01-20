@@ -1,6 +1,6 @@
 apiVersion: v1
 data:
-  base-url: http://de6f-77-223-69-165.ngrok.io
+  base-url: http://3a6f-77-223-69-165.ngrok.io
   runtime: |
     apiVersion: codefresh.io/v1alpha1
     kind: Runtime
