@@ -3,8 +3,8 @@ configMapGenerator:
 - behavior: merge
   literals:
   - argoWorkflowsInsecure=true
-  - cfHost=http://e3e1-77-223-69-165.ngrok.io
-  - cors=http://e3e1-77-223-69-165.ngrok.io,http://local.codefresh.io
+  - cfHost=http://88dd-77-223-69-165.ngrok.io
+  - cors=http://88dd-77-223-69-165.ngrok.io,http://local.codefresh.io
   - env=production
   name: cap-app-proxy-cm
 kind: Kustomization
