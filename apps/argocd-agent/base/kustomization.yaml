@@ -39,4 +39,4 @@ patches:
     kind: ConfigMap
     version: v1
 resources:
-- https://raw.githubusercontent.com/codefresh-io/cli-v2/main/manifests/argo-agent/agent.yaml
+- github.com/codefresh-io/cli-v2/manifests/argo-agent?ref=v0.0.232
