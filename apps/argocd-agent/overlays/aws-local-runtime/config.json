@@ -1,0 +1,1 @@
+{"appName":"argocd-agent","userGivenName":"argocd-agent","destNamespace":"aws-local-runtime","destServer":"https://kubernetes.default.svc","srcPath":"apps/argocd-agent/overlays/aws-local-runtime","srcRepoURL":"https://github.com/PhilippPlotnikov/aws-local-runtime.git","srcTargetRevision":"","labels":{"codefresh_io_entity":"component"}}
