@@ -1,0 +1,46 @@
+apiVersion: v1
+data:
+  base-url: http://dbf9-92-248-156-243.ngrok.io
+  runtime: |
+    apiVersion: codefresh.io/v1alpha1
+    kind: Runtime
+    metadata:
+      creationTimestamp: null
+      name: aws-local-runtime
+      namespace: aws-local-runtime
+    spec:
+      bootstrapSpecifier: github.com/codefresh-io/cli-v2/manifests/argo-cd
+      cluster: https://19208D3B75E55C7C01C2906505D2B475.gr7.us-east-1.eks.amazonaws.com
+      components:
+      - name: events
+        type: kustomize
+        url: github.com/codefresh-io/cli-v2/manifests/argo-events?ref=v0.0.232
+        wait: true
+      - name: rollouts
+        type: kustomize
+        url: github.com/codefresh-io/cli-v2/manifests/argo-rollouts?ref=v0.0.232
+        wait: false
+      - name: workflows
+        type: kustomize
+        url: github.com/codefresh-io/cli-v2/manifests/argo-workflows?ref=v0.0.232
+        wait: false
+      - name: argocd-agent
+        type: kustomize
+        url: github.com/codefresh-io/cli-v2/manifests/argo-agent?ref=v0.0.232
+        wait: false
+      - name: app-proxy
+        type: kustomize
+        url: github.com/codefresh-io/cli-v2/manifests/app-proxy?ref=v0.0.232
+        wait: false
+      defVersion: 1.0.0
+      ingressHost: https://philipp.hybrid-team.cf-cd.com
+      repo: https://github.com/PhilippPlotnikov/aws-local-runtime
+      version: 0.0.232
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/managed-by: codefresh
+    codefresh.io/entity: runtimeDef
+  name: codefresh-cm
+  namespace: aws-local-runtime
