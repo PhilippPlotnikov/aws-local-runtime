@@ -1,1 +1,0 @@
-{"appName":"workflow-reporter","userGivenName":"workflow-reporter","destNamespace":"aws-local-runtime","destServer":"https://kubernetes.default.svc","srcPath":"apps/workflow-reporter/aws-local-runtime/resources","srcRepoURL":"https://github.com/PhilippPlotnikov/aws-local-runtime.git","srcTargetRevision":"","labels":{"codefresh_io_entity":"component"},"exclude":"","include":""}
