@@ -33,8 +33,7 @@ data:
         url: github.com/codefresh-io/cli-v2/manifests/app-proxy?ref=v0.0.233
         wait: false
       defVersion: 1.0.0
-      # https://philipp.hybrid-team.cf-cd.com
-      ingressHost: http://localhost:3017
+      ingressHost: https://philipp.hybrid-team.cf-cd.com
       repo: https://github.com/PhilippPlotnikov/aws-local-runtime
       version: 0.0.233
 kind: ConfigMap
