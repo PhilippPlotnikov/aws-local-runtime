@@ -1,17 +1,17 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 configMapGenerator:
-- behavior: merge
-  literals:
-  - argoWorkflowsInsecure=true
-  - cfHost=http://916f-92-248-156-243.ngrok.io
-  - cors=http://916f-92-248-156-243.ngrok.io,http://local.codefresh.io
-  - env=production
-  name: cap-app-proxy-cm
+  - behavior: merge
+    literals:
+      - argoWorkflowsInsecure=true
+      - cfHost=http://916f-92-248-156-243.ngrok.io
+      - cors=http://916f-92-248-156-243.ngrok.io,http://local.codefresh.io
+      - env=production
+    name: cap-app-proxy-cm
 kind: Kustomization
 namespace: aws-local-runtime
 resources:
-- ../../base
-- ingress.yaml
+  - ../../base
+  - ingress.yaml
 replicas:
-    - name: cap-app-proxy
-      count: 0
+  - name: cap-app-proxy
+    count: 1
