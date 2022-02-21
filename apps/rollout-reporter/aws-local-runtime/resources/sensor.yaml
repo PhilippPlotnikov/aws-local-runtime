@@ -33,6 +33,6 @@ spec:
             secretKeyRef:
               key: token
               name: codefresh-token
-        url: http://bf93-92-248-156-243.ngrok.io/2.0/api/events
+        url: http://916f-92-248-156-243.ngrok.io/2.0/api/events
       name: rollouts
 status: {}
