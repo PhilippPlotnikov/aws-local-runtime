@@ -34,7 +34,7 @@ data:
         wait: false
       defVersion: 1.0.0
       # https://philipp.hybrid-team.cf-cd.com
-      ingressHost: https://35.246.189.238
+      ingressHost: http://localhost:3017
       repo: https://github.com/PhilippPlotnikov/aws-local-runtime
       version: 0.0.233
 kind: ConfigMap
