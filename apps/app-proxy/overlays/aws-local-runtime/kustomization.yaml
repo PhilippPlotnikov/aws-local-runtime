@@ -14,4 +14,4 @@ resources:
   - ingress.yaml
 replicas:
   - name: cap-app-proxy
-    count: 0
+    count: 1
