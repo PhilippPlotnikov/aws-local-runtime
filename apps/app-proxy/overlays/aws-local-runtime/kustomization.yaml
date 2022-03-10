@@ -6,6 +6,7 @@ configMapGenerator:
   - cfHost=http://philipp-platform.ngrok.io
   - cors=http://philipp-platform.ngrok.io,http://local.codefresh.io
   - env=production
+  - graphqlPlayground=true
   name: cap-app-proxy-cm
 kind: Kustomization
 namespace: aws-local-runtime
