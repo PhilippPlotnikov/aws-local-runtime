@@ -35,7 +35,7 @@ data:
       defVersion: 1.0.1
       ingressClassName: nginx
       ingressController: k8s.io/ingress-nginx
-      ingressHost: https://philipp.hybrid-team.cf-cd.com
+      ingressHost: http://localhost
       repo: https://github.com/PhilippPlotnikov/aws-local-runtime
       version: 0.0.342
 kind: ConfigMap
