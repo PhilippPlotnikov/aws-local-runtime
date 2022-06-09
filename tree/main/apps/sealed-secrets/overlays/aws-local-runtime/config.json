@@ -1,0 +1,13 @@
+{
+  "appName": "sealed-secrets",
+  "userGivenName": "sealed-secrets",
+  "destNamespace": "aws-local-runtime",
+  "destServer": "https://kubernetes.default.svc",
+  "srcPath": "tree/main/apps/sealed-secrets/overlays/aws-local-runtime",
+  "srcRepoURL": "https://github.com/PhilippPlotnikov/aws-local-runtime.git",
+  "srcTargetRevision": "",
+  "labels": {
+    "codefresh_io_entity": "component",
+    "codefresh_io_internal": "true"
+  }
+}
