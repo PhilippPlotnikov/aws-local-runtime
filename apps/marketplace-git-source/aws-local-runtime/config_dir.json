@@ -2,7 +2,7 @@
   "appName": "marketplace-git-source",
   "userGivenName": "marketplace-git-source",
   "destNamespace": "aws-local-runtime",
-  "destServer": "https://kubernetes.default.svc",
+  "destServer": "https://50826B3061FFA59FB675CA2B21345854.gr7.us-east-1.eks.amazonaws.com",
   "srcPath": ".",
   "srcRepoURL": "https://github.com/codefresh-io/argo-hub.git",
   "srcTargetRevision": "",
