@@ -1,0 +1,4 @@
+{
+  "name": "arn:aws:eks:us-east-1:705921569962:cluster/noam-test",
+  "server": "https://50826B3061FFA59FB675CA2B21345854.gr7.us-east-1.eks.amazonaws.com"
+}
