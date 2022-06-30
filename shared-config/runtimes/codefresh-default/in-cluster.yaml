@@ -3,7 +3,7 @@ kind: Application
 metadata:
   labels:
     codefresh.io/entity: internal-config
-    codefresh.io/internal: "true"
+    codefresh.io/internal: 'true'
   name: in-cluster
 spec:
   destination:
@@ -12,7 +12,8 @@ spec:
   project: default
   source:
     directory:
-      include: '{all-runtimes-all-clusters/*.yaml,all-runtimes-all-clusters/**/*.yaml,runtimes/codefresh-default/*.yaml,runtimes/codefresh-default/**/*.yaml,control-planes/*.yaml,control-planes/**/*.yaml}'
+      include: >-
+        {all-runtimes-all-clusters/*.yaml,all-runtimes-all-clusters/**/*.yaml,runtimes/codefresh-default/*.yaml,runtimes/codefresh-default/**/*.yaml,control-planes/*.yaml,control-planes/**/*.yaml,codefresh-default/default-git-source.yaml}
       recurse: true
     path: shared-config/resources
     repoURL: https://github.com/PhilippPlotnikov/aws-local-runtime.git
@@ -23,4 +24,4 @@ spec:
       prune: true
       selfHeal: true
     syncOptions:
-    - allowEmpty=true
+      - allowEmpty=true
