@@ -10,7 +10,7 @@ metadata:
 spec:
   project: git-sources
   source:
-    repoURL: https://github.com/PhilippPlotnikov/codefresh-runtime_git-source.git
+    repoURL: https://github.com/PhilippPlotnikov/codefresh-runtime-applications.git
     path: .
     targetRevision: HEAD
     directory:
