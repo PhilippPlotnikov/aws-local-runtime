@@ -14,4 +14,4 @@ configMapGenerator:
 kind: Kustomization
 namespace: aws-local-runtime
 resources:
-- github.com/codefresh-io/cli-v2/manifests/argo-cd?ref=v0.0.411
+- github.com/codefresh-io/cli-v2/manifests/argo-cd?ref=v0.0.413
