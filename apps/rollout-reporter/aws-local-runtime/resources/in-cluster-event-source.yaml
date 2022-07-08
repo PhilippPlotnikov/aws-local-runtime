@@ -1,0 +1,50 @@
+apiVersion: argoproj.io/v1alpha1
+kind: EventSource
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/managed-by: cf
+  name: in-cluster-rollout-reporter
+  namespace: aws-local-runtime
+spec:
+  eventBusName: codefresh-eventbus
+  resource:
+    analysisruns:
+      eventTypes:
+      - ADD
+      - UPDATE
+      - DELETE
+      filter:
+        createdBy: null
+      group: argoproj.io
+      resource: analysisruns
+      version: v1alpha1
+      cluster: in-cluster
+    replicasets:
+      eventTypes:
+      - ADD
+      - UPDATE
+      - DELETE
+      filter:
+        createdBy: null
+      group: apps
+      resource: replicasets
+      version: v1
+      cluster: in-cluster
+    rollouts:
+      eventTypes:
+      - ADD
+      - UPDATE
+      - DELETE
+      filter:
+        createdBy: null
+      group: argoproj.io
+      resource: rollouts
+      version: v1alpha1
+      cluster: in-cluster
+  template:
+    container:
+      name: ''
+      resources: {}
+    serviceAccountName: rollout-reporter-sa
+status: {}
