@@ -1,0 +1,15 @@
+{
+  "appName": "isc",
+  "userGivenName": "isc",
+  "destNamespace": "aws-local-runtime",
+  "destServer": "https://kubernetes.default.svc",
+  "srcPath": "shared-config/runtimes/aws-local-runtime",
+  "srcRepoURL": "https://github.com/PhilippPlotnikov/aws-local-runtime.git",
+  "srcTargetRevision": "",
+  "labels": {
+    "codefresh_io_entity": "shared-configuration",
+    "codefresh_io_internal": "true"
+  },
+  "exclude": "",
+  "include": ""
+}
