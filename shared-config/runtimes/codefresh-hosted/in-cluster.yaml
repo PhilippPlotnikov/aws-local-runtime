@@ -13,7 +13,7 @@ spec:
   source:
     directory:
       include: >-
-        {all-runtimes-all-clusters/*.yaml,all-runtimes-all-clusters/**/*.yaml,runtimes/codefresh-hosted/*.yaml,runtimes/codefresh-hosted/**/*.yaml,control-planes/*.yaml,control-planes/**/*.yaml,codefresh-hosted/default-git-source.yaml}
+        {all-runtimes-all-clusters/*.yaml,all-runtimes-all-clusters/**/*.yaml,runtimes/codefresh-hosted/*.yaml,runtimes/codefresh-hosted/**/*.yaml,control-planes/*.yaml,control-planes/**/*.yaml,codefresh-hosted/default-git-source.yaml,codefresh-hosted/codefresh-runtime-applications.yaml}
       recurse: true
     path: shared-config/resources
     repoURL: https://github.com/PhilippPlotnikov/aws-local-runtime.git
