@@ -4,7 +4,7 @@ configMapGenerator:
   literals:
   - argoWorkflowsInsecure=true
   - cfHost=https://g.codefresh.io
-  - cors=https://g.codefresh.io
+  - cors=https://g.codefresh.io,http://local.codefresh.io
   - env=production
   name: cap-app-proxy-cm
 kind: Kustomization
