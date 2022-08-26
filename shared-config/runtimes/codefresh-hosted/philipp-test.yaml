@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+  labels:
+    codefresh.io/entity: internal-config
+    codefresh.io/internal: 'true'
+  name: philipp-test
+spec:
+  destination:
+    namespace: default
+    server: https://19208D3B75E55C7C01C2906505D2B475.gr7.us-east-1.eks.amazonaws.com
+  project: default
+  source:
+    directory:
+      include: >-
+        {all-runtimes-all-clusters/*.yaml,all-runtimes-all-clusters/**/*.yaml,runtimes/codefresh-hosted/*.yaml,runtimes/codefresh-hosted/**/*.yaml,codefresh-hosted-managed-cluster-philipp-test-cm.yaml}
+      recurse: true
+    path: shared-config/resources
+    repoURL: https://github.com/PhilippPlotnikov/aws-local-runtime.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      allowEmpty: true
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - allowEmpty=true
