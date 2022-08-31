@@ -1,0 +1,97 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  annotations:
+    argocd-autopilot.argoproj-labs.io/default-dest-server: https://19208D3B75E55C7C01C2906505D2B475.gr7.us-east-1.eks.amazonaws.com
+    argocd.argoproj.io/sync-options: PruneLast=true
+    argocd.argoproj.io/sync-wave: "-2"
+  creationTimestamp: null
+  name: philipp-test
+  namespace: aws-local-runtime
+spec:
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  description: philipp-test project
+  destinations:
+  - namespace: '*'
+    server: '*'
+  namespaceResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  sourceRepos:
+  - '*'
+status: {}
+
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
+  creationTimestamp: null
+  name: philipp-test
+  namespace: aws-local-runtime
+spec:
+  generators:
+  - git:
+      files:
+      - path: apps/**/philipp-test/config.json
+      repoURL: https://github.com/PhilippPlotnikov/aws-local-runtime.git
+      requeueAfterSeconds: 20
+      revision: ""
+      template:
+        metadata: {}
+        spec:
+          destination: {}
+          project: ""
+          source:
+            repoURL: ""
+  - git:
+      files:
+      - path: apps/**/philipp-test/config_dir.json
+      repoURL: https://github.com/PhilippPlotnikov/aws-local-runtime.git
+      requeueAfterSeconds: 20
+      revision: ""
+      template:
+        metadata: {}
+        spec:
+          destination: {}
+          project: ""
+          source:
+            directory:
+              exclude: '{{ exclude }}'
+              include: '{{ include }}'
+              jsonnet: {}
+              recurse: true
+            repoURL: ""
+  syncPolicy: {}
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/managed-by: argocd-autopilot
+        app.kubernetes.io/name: '{{ appName }}'
+        codefresh.io/entity: '{{ labels.codefresh_io_entity }}'
+        codefresh.io/internal: '{{ labels.codefresh_io_internal }}'
+      name: philipp-test-{{ userGivenName }}
+      namespace: aws-local-runtime
+    spec:
+      destination:
+        namespace: '{{ destNamespace }}'
+        server: '{{ destServer }}'
+      ignoreDifferences:
+      - group: argoproj.io
+        jsonPointers:
+        - /status
+        kind: Application
+      project: philipp-test
+      source:
+        path: '{{ srcPath }}'
+        repoURL: '{{ srcRepoURL }}'
+        targetRevision: '{{ srcTargetRevision }}'
+      syncPolicy:
+        automated:
+          allowEmpty: true
+          prune: true
+          selfHeal: true
+status: {}
