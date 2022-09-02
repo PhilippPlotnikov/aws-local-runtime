@@ -1,0 +1,48 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
+  creationTimestamp: null
+  name: cluster-resources
+  namespace: aws-local-runtime
+spec:
+  generators:
+  - git:
+      files:
+      - path: bootstrap/cluster-resources/*.json
+      repoURL: https://github.com/PhilippPlotnikov/aws-local-runtime.git
+      requeueAfterSeconds: 20
+      revision: ""
+      template:
+        metadata: {}
+        spec:
+          destination: {}
+          project: ""
+          source:
+            repoURL: ""
+  syncPolicy:
+    preserveResourcesOnDeletion: true
+  template:
+    metadata:
+      labels:
+        codefresh.io/internal: "true"
+      name: cluster-resources-{{name}}
+      namespace: aws-local-runtime
+    spec:
+      destination:
+        server: '{{server}}'
+      ignoreDifferences:
+      - group: argoproj.io
+        jsonPointers:
+        - /status
+        kind: Application
+      project: default
+      source:
+        path: bootstrap/cluster-resources/{{name}}
+        repoURL: https://github.com/PhilippPlotnikov/aws-local-runtime.git
+      syncPolicy:
+        automated:
+          allowEmpty: true
+          selfHeal: true
+status: {}
