@@ -1,0 +1,18 @@
+{
+  "appName": "default-git-source",
+  "userGivenName": "default-git-source",
+  "destNamespace": "aws-local-runtime",
+  "destServer": "https://kubernetes.default.svc",
+  "srcPath": "resources_aws-local-runtime",
+  "srcRepoURL": "https://github.com/PhilippPlotnikov/aws-local-runtime_git-source.git",
+  "srcTargetRevision": "",
+  "labels": {
+    "codefresh_io_entity": "git-source",
+    "codefresh_io_internal": "false"
+  },
+  "annotations": {
+    "argocd_argoproj_io_sync-wave": "0"
+  },
+  "exclude": "",
+  "include": ""
+}
