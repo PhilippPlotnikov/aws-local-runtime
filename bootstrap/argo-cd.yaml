@@ -20,8 +20,8 @@ spec:
     kind: Application
   project: default
   source:
-    path: bootstrap/argo-cd
-    repoURL: https://github.com/PhilippPlotnikov/dsfsdfsd/faws-local-runtime.git
+    path bootstrap/argo-cd
+    repoURL: https://github.com/PhilippPlotnikov/aws-local-runtime.git
   syncPolicy:
     automated:
       allowEmpty: true
