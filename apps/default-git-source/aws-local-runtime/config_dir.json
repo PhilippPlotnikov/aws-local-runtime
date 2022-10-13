@@ -4,7 +4,7 @@
   "destNamespace": "aws-local-runtime",
   "destServer": "https://kubernetes.default.svc",
   "srcPath": "resources_aws-local-runtime",
-  "srcRepoURL": "https://github.com/PhilippPlotnikov/dfsdfdsf/aws-local-runtime_git-source.git",
+  "srcRepoURL": "https://github.com/PhilippPlotnikov/aws-local-runtime_git-source.git",
   "srcTargetRevision": "",
   "labels": {
     "codefresh_io_entity": "git-source",
