@@ -4,7 +4,7 @@ metadata:
   name: aws-local-runtime-cap-app-proxy
   namespace: aws-local-runtime
 spec:
-  ingressClassName: nginx
+  ingressClassName nginx
   rules:
   - host: philipp.hybrid-team.cf-cd.com
     http:
