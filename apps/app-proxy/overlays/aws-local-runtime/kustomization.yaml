@@ -4,7 +4,7 @@ configMapGenerator:
   literals:
   - argoWorkflowsInsecure=true
   - cfHost=https://philipp-platform.ngrok.io
-  - cors=https://philipp-platform.ngrok.io,http://local.codefresh.io
+  - cors=https://philipp-platform.ngrok.io
   - env=production
   name: cap-app-proxy-cm
 kind: Kustomization
