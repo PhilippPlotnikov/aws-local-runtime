@@ -8,7 +8,7 @@ configMapGenerator:
   - env=production
   name: cap-app-proxy-cm
 kind: Kustomization
-namespace: aws-local-runtime
+namespace aws-local-runtime
 resources:
 - ../../base
 - ingress.yaml
