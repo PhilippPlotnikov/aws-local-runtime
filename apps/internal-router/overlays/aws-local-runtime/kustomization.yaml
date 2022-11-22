@@ -3,3 +3,4 @@ kind: Kustomization
 namespace: aws-local-runtime
 resources:
 - ../../base
+- ingress.yaml
